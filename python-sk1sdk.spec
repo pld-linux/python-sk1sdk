@@ -10,9 +10,6 @@ Group:		Libraries/Python
 Source0:	https://sk1.googlecode.com/files/sk1sdk-%{version}pre2_rev1383.tar.gz
 # Source0-md5:	b6db1a14ed9d39251851a3d78b63bb15
 URL:		http://sk1project.org/
-BuildRequires:	freetype-devel >= 2
-BuildRequires:	lcms-devel
-BuildRequires:	libjpeg-devel >= 6b
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	tcl-devel
