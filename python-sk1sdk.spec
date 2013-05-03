@@ -12,6 +12,7 @@ Source0:	https://sk1.googlecode.com/files/sk1sdk-%{version}pre2_rev1383.tar.gz
 URL:		http://sk1project.org/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	tcl-devel
 BuildRequires:	tk-devel
 BuildRequires:	xorg-lib-libXcursor-devel
@@ -38,6 +39,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
+
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
