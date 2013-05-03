@@ -1,6 +1,5 @@
-#TODO:
-# verify BR/R
-
+# TODO:
+# - verify R
 Summary:	Set of Python GUI extensions for sK1 Project
 Summary(pl.UTF-8):	Zbiór pythonowych rozszerzeń GUI dla projektu sK1
 Name:		python-sk1sdk
@@ -8,7 +7,7 @@ Version:	0.9.1
 Release:	0.1
 License:	LGPL v2+
 Group:		Libraries/Python
-Source0:	https://sk1.googlecode.com/files/sk1sdk-0.9.1pre2_rev1383.tar.gz
+Source0:	https://sk1.googlecode.com/files/sk1sdk-%{version}pre2_rev1383.tar.gz
 # Source0-md5:	b6db1a14ed9d39251851a3d78b63bb15
 URL:		http://sk1project.org/
 BuildRequires:	freetype-devel >= 2
@@ -16,8 +15,11 @@ BuildRequires:	lcms-devel
 BuildRequires:	libjpeg-devel >= 6b
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
+BuildRequires:	tcl-devel
+BuildRequires:	tk-devel
+BuildRequires:	xorg-lib-libXcursor-devel
 BuildRequires:	zlib-devel
-%pyrequires_eq	python-libs
+Requires:	python-libs
 Suggests:	fonts-TTF-bitstream-vera
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,7 +38,6 @@ CFLAGS="%{rpmcflags}" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
