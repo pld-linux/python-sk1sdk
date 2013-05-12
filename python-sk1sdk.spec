@@ -1,23 +1,24 @@
-# TODO:
-# - verify R
+# NOTE: includes a copy of tkinter + aux extensions (ttk, tkimage)
 Summary:	Set of Python GUI extensions for sK1 Project
 Summary(pl.UTF-8):	Zbiór pythonowych rozszerzeń GUI dla projektu sK1
 Name:		python-sk1sdk
 Version:	0.9.1
-Release:	0.1
+%define	subver	pre2
+Release:	0.%{subver}.1
 License:	LGPL v2+
 Group:		Libraries/Python
-Source0:	https://sk1.googlecode.com/files/sk1sdk-%{version}pre2_rev1383.tar.gz
+Source0:	https://sk1.googlecode.com/files/sk1sdk-%{version}%{subver}_rev1383.tar.gz
 # Source0-md5:	b6db1a14ed9d39251851a3d78b63bb15
 URL:		http://sk1project.org/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-BuildRequires:	tcl-devel
-BuildRequires:	tk-devel
+BuildRequires:	tcl-devel >= 8.5
+BuildRequires:	tk-devel >= 8.5
 BuildRequires:	xorg-lib-libXcursor-devel
 BuildRequires:	zlib-devel
 Requires:	python-libs
+Requires:	python-sk1libs >= 0.9.1
 Suggests:	fonts-TTF-bitstream-vera
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,7 +29,7 @@ Set of Python GUI extensions for sK1 Project.
 Zbiór pythonowych rozszerzeń GUI dla projektu sK1.
 
 %prep
-%setup -q -n sk1sdk-%{version}pre2
+%setup -q -n sk1sdk-%{version}%{subver}
 
 %build
 CFLAGS="%{rpmcflags}" \
@@ -67,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/sk1sdk/tkstyle/colors
 %{py_sitedir}/sk1sdk/tkstyle/icons
 %{py_sitedir}/sk1sdk/tkstyle/themes
-%{py_sitedir}/sk1sdk-*.egg-info
+%{py_sitedir}/sk1sdk-%{version}%{subver}-py*.egg-info
 
 %attr(755,root,root) %{py_sitedir}/sk1sdk/libtk/_tkinter.so
 %attr(755,root,root) %{py_sitedir}/sk1sdk/tkXcursor/_tkXcursor.so
