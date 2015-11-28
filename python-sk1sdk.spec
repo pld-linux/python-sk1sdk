@@ -32,14 +32,11 @@ Zbiór pythonowych rozszerzeń GUI dla projektu sK1.
 %setup -q -n sk1sdk-%{version}%{subver}
 
 %build
-CFLAGS="%{rpmcflags}" \
-%{__python} setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py_install
 
 %py_postclean
 
