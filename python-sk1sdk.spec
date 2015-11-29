@@ -12,7 +12,7 @@ Source0:	https://sk1.googlecode.com/files/sk1sdk-%{version}%{subver}_rev1383.tar
 URL:		http://sk1project.org/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	tcl-devel >= 8.5
 BuildRequires:	tk-devel >= 8.5
 BuildRequires:	xorg-lib-libXcursor-devel
